@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(rm -rf /c/Users/tevoh/Desktop/sparky-tmp)",
+      "Bash(mkdir -p /c/Users/tevoh/Desktop/Sparky/convex /c/Users/tevoh/Desktop/Sparky/lib /c/Users/tevoh/Desktop/Sparky/app/room/\\\\[code\\\\]/components/games /c/Users/tevoh/Desktop/Sparky/app/room/\\\\[code\\\\]/components/ui)"
+    ]
+  }
+}

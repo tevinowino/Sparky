@@ -1,26 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #F5F0E3;
+  --teal: #1E5F5F;
+  --teal-dark: #153F3F;
+  --rust: #C4472A;
+  --rust-dark: #A3331A;
+  --ink: #1A1A1A;
+  --muted: #8B7355;
+  --card-bg: #FDFAF3;
+  --border: #C8B89A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', monospace;
 }
+
+.font-display {
+  font-family: 'Alfa Slab One', serif;
+}
+
+.font-mono-custom {
+  font-family: 'Courier Prime', monospace;
+}
+
+.section-header {
+  background-color: var(--teal);
+  color: white;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.retro-card {
+  background-color: var(--card-bg);
+  border: 3px solid var(--teal);
+  box-shadow: 4px 4px 0px var(--teal-dark);
+}
+
+.btn-rust {
+  background-color: var(--rust);
+  color: white;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--rust-dark);
+  box-shadow: 3px 3px 0px var(--rust-dark);
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-rust:hover {
+  background-color: var(--rust-dark);
+  box-shadow: 1px 1px 0px var(--rust-dark);
+  transform: translate(2px, 2px);
+}
+
+.btn-rust:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.btn-rust:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 3px 3px 0px var(--rust-dark);
+}
+
+.btn-teal {
+  background-color: var(--teal);
+  color: white;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--teal-dark);
+  box-shadow: 3px 3px 0px var(--teal-dark);
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-teal:hover {
+  background-color: var(--teal-dark);
+  box-shadow: 1px 1px 0px var(--teal-dark);
+  transform: translate(2px, 2px);
+}
+
+.btn-teal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.retro-input {
+  background-color: var(--cream);
+  border: 2px solid var(--teal);
+  font-family: 'Courier Prime', monospace;
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.retro-input:focus {
+  border-color: var(--rust);
+  box-shadow: 0 0 0 2px rgba(196, 71, 42, 0.15);
+}
+
+.avatar-circle {
+  border: 3px solid var(--teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-bg);
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 4px; }
+
+@keyframes dot-pulse {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+.dot-pulse span:nth-child(1) { animation: dot-pulse 1.4s infinite 0s; }
+.dot-pulse span:nth-child(2) { animation: dot-pulse 1.4s infinite 0.2s; }
+.dot-pulse span:nth-child(3) { animation: dot-pulse 1.4s infinite 0.4s; }
+
+/* Mood-based idle card animations — CSS only, never triggers Framer Motion re-renders */
+@keyframes mood-spicy {
+  0%, 100% { transform: rotate(-0.6deg); }
+  50%       { transform: rotate(0.6deg); }
+}
+@keyframes mood-chaotic {
+  0%   { transform: rotate(-1.2deg) translateX(-1px); }
+  25%  { transform: rotate(1deg) translateX(1px); }
+  50%  { transform: rotate(-0.8deg) translateX(-1px); }
+  75%  { transform: rotate(1.2deg) translateX(1px); }
+  100% { transform: rotate(-1.2deg) translateX(-1px); }
+}
+@keyframes mood-wholesome {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.008); }
+}
+@keyframes mood-absurd {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+.animate-mood-spicy     { animation: mood-spicy 2.5s ease-in-out infinite; }
+.animate-mood-chaotic   { animation: mood-chaotic 0.9s ease-in-out infinite; }
+.animate-mood-wholesome { animation: mood-wholesome 3.5s ease-in-out infinite; }
+.animate-mood-absurd    { animation: mood-absurd 2.8s ease-in-out infinite; }
+
+/* Retro Pixel & Viewport Overrides */
+.pixelated {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.h-dvh-safe {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.retro-double-border {
+  border: 6px double var(--teal);
+}
+
+.retro-double-border-rust {
+  border: 6px double var(--rust);
+}
+
+/* CRT Scanline Overlay Effect */
+.crt-effect {
+  position: relative;
+}
+.crt-effect::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.08) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Retro Modal Animations */
+@keyframes retro-pop {
+  0% { transform: scale(0.9) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.animate-retro-pop {
+  animation: retro-pop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
