@@ -145,7 +145,7 @@ export default function Podium({ room, sessionId, currentPlayer }: PodiumProps) 
           >
             {PODIUM_ORDER.map((rank, col) => {
               const player = sorted[rank];
-              if (!player) return <div key={col} className="w-24" />;
+              if (!player) return <div key={col} className="w-20" />;
               return (
                 <motion.div
                   key={player._id}

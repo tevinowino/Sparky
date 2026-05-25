@@ -270,16 +270,20 @@ export default function Lobby({ room, sessionId, currentPlayer, autoPassword }: 
       <div className="max-w-5xl mx-auto">
 
         {/* Top nav */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <button
             onClick={handleLeave}
-            className="flex items-center gap-2 font-mono-custom font-bold uppercase text-xs tracking-widest px-3 py-2 rounded transition-all"
+            className="flex items-center gap-2 font-mono-custom font-bold uppercase text-xs tracking-widest px-3 py-2 rounded transition-all w-full sm:w-auto justify-center cursor-pointer"
             style={{ color: "var(--muted)", border: "2px solid var(--border)" }}
           >
             ← Leave Room
           </button>
-          <img src="/logo.png" alt="Sparky" style={{ height: "56px", width: "auto" }} />
-          <div className="w-28" />
+          <img
+            src="/logo.png"
+            alt="Sparky"
+            className="h-12 sm:h-14 w-auto object-contain"
+          />
+          <div className="hidden sm:block w-28" />
         </div>
 
         {/* Room code + share */}
@@ -351,7 +355,7 @@ export default function Lobby({ room, sessionId, currentPlayer, autoPassword }: 
                     onSelect={setJoinAvatar}
                     takenAvatars={takenAvatars}
                   />
-                  {room.isPrivate && (
+                  {room.isPrivate && room.password && (
                     <div>
                       <label className="block font-mono-custom font-bold uppercase text-[10px] tracking-widest mb-1" style={{ color: "var(--muted)" }}>
                         Room Password
@@ -370,7 +374,7 @@ export default function Lobby({ room, sessionId, currentPlayer, autoPassword }: 
                     <p className="text-xs font-mono-custom" style={{ color: "var(--rust)" }}>{joinError}</p>
                   )}
                   <button type="submit" className="btn-teal w-full py-2 text-sm" disabled={joining || !joinName.trim()}>
-                    {joining ? "Joining..." : room.isPrivate ? "🔒 Request to Join" : "Join Room"}
+                    {joining ? "Joining..." : room.isPrivate && room.password ? "🔒 Request to Join" : "Join Room"}
                   </button>
                 </form>
               )}

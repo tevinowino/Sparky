@@ -141,7 +141,7 @@ export default function GameShell({
       </div>
 
       {/* ── Player avatar strip ── */}
-      <div className="flex justify-center gap-2 px-4 py-2 shrink-0 flex-wrap">
+      <div className="flex justify-start sm:justify-center items-center gap-2 px-4 py-2 shrink-0 overflow-x-auto flex-nowrap max-w-full scrollbar-none">
         {players.map((p) => {
           const answered = answeredIds.has(p._id);
           return (

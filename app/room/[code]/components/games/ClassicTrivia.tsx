@@ -241,7 +241,7 @@ export default function ClassicTrivia({
           </p>
 
           {/* Options grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[170px] overflow-y-auto pr-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 max-h-[160px] sm:max-h-[220px] overflow-y-auto pr-1">
             {OPTION_KEYS.map((key, i) => {
               const state = optionState(key);
               const col = OPTION_COLORS[i];
@@ -275,7 +275,7 @@ export default function ClassicTrivia({
                   disabled={!!selected}
                   whileHover={selected ? {} : { scale: 1.02 }}
                   whileTap={selected ? {} : { scale: 0.98 }}
-                  className="relative overflow-hidden flex items-center gap-2.5 p-3 rounded border-3 cursor-pointer select-none text-left"
+                  className="relative overflow-hidden flex items-center gap-1.5 sm:gap-2.5 p-2 sm:p-3 rounded border-2 sm:border-3 cursor-pointer select-none text-left"
                   style={{
                     background: bgColor,
                     borderColor: borderColor,
@@ -299,7 +299,7 @@ export default function ClassicTrivia({
 
                   {/* Key badge */}
                   <div
-                    className="relative z-10 w-7 h-7 rounded border-2 flex items-center justify-center font-display text-xs shrink-0"
+                    className="relative z-10 w-6 h-6 sm:w-7 sm:h-7 rounded border-2 flex items-center justify-center font-display text-xs shrink-0"
                     style={{
                       borderColor: borderColor,
                       backgroundColor:

@@ -41,9 +41,8 @@ function OptionPanel({
       onClick={locked ? undefined : onSelect}
       whileHover={locked ? {} : { scale: 1.015 }}
       whileTap={locked ? {} : { scale: 0.985 }}
-      className="w-full relative overflow-hidden flex flex-col items-center justify-center gap-3 py-8 px-6"
+      className="w-full relative overflow-hidden flex flex-col items-center justify-center gap-2 sm:gap-3 py-4 sm:py-8 px-4 sm:px-6 min-h-[120px] sm:min-h-[200px]"
       style={{
-        minHeight: "200px",
         background: isLight ? "#FDFAF3" : "#1E5F5F",
         border: "3px solid #004747",
         borderRadius: "0.25rem",
@@ -66,10 +65,10 @@ function OptionPanel({
         />
       )}
 
-      <span className="text-7xl leading-none relative z-10 select-none">{option.emoji}</span>
+      <span className="text-4xl sm:text-7xl leading-none relative z-10 select-none">{option.emoji}</span>
 
       <span
-        className="font-display text-xl md:text-2xl uppercase text-center leading-tight relative z-10"
+        className="font-display text-base sm:text-xl md:text-2xl uppercase text-center leading-tight relative z-10"
         style={{ color: isLight ? "#004747" : "white" }}
       >
         {option.label}
@@ -77,7 +76,7 @@ function OptionPanel({
 
       {option.sublabel && (
         <span
-          className="font-mono-custom text-xs italic text-center relative z-10"
+          className="font-mono-custom text-[10px] sm:text-xs italic text-center relative z-10"
           style={{ color: isLight ? "#8B7355" : "rgba(255,255,255,0.7)" }}
         >
           {option.sublabel}
